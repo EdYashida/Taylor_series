@@ -1,21 +1,16 @@
-
-def fatorial(num):
-    if num == 0 or num == 1:
-        return 1
-    else:
-        resultado = 1
-        for i in range(2, num + 1):
-            resultado *= i
-        return resultado
-
 def taylor(x, n):
-    #DERIVADAS DE e^x são e^x
-    #f=f'=f''=f'''...
-    #calcula com n termos
-    soma = 0
-    for i in range(n+1):
-        soma += (x ** i) / fatorial(i)
+    # Inicia com o primeiro termo (x^0 / 0! = 1)
+    soma = 1
+    termo_anterior = 1  # O primeiro termo é 1
+
+    for i in range(1, n+1):
+        # Calcula o próximo termo aproveitando o termo anterior
+        termo_atual = termo_anterior * (x / i)
+        soma += termo_atual
+        termo_anterior = termo_atual  # Atualiza o termo anterior para o próximo cálculo
+
     return soma
+
 
 def main():
     print("Cálculo de e^x usando a série de Taylor")
