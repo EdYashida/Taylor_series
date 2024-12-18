@@ -30,7 +30,7 @@ def main():
         # Cálculo considerando y = -x e e^x = 1/e^-x
         print("\n--- Usando y = -x e calculando 1/e^-x ---")
         y = -x
-        e_negativo_x = taylor(y, n)
+        e_negativo_x = taylor(y, p)
         ex_via_inverso = 1 / e_negativo_x
         print(f"O valor de e^{x} (via 1/e^{-x}) com {p} de limite de tolerancia é: {ex_via_inverso:.8f}")
 
